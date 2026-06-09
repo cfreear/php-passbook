@@ -100,6 +100,13 @@ class Field implements FieldInterface
     protected $label;
 
     /**
+     * Row for the field.
+     * Used in pass types that support a second row of fields.
+     * @var int the row to display the field on, 0 or 1.
+     */
+    protected $row;
+
+    /**
      * Alignment for the field’s contents. Must be one of the following values:
      * PKTextAlignmentLeft, PKTextAlignmentCenter, PKTextAlignmentRight, PKTextAlignmentNatural
      * The default value is natural alignment,
@@ -150,6 +157,10 @@ class Field implements FieldInterface
 
         if ($this->getLabel()) {
             $array['label'] = $this->getLabel();
+        }
+
+        if ($this->getRow()) {
+            $array['row'] = $this->getRow();
         }
 
         if ($this->getTextAlignment()) {
@@ -219,6 +230,24 @@ class Field implements FieldInterface
     public function getLabel()
     {
         return $this->label;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRow($row)
+    {
+        $this->row = $row;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRow()
+    {
+        return $this->row;
     }
 
     /**
