@@ -63,6 +63,20 @@ interface FieldInterface extends ArrayableInterface
     public function getLabel();
 
     /**
+     * Sets row number (0 or 1)
+     *
+     * @param int $row
+     */
+    public function setRow($row);
+
+    /**
+     * Returns row number (0 or 1)
+     *
+     * @return int
+     */
+    public function getRow();
+
+    /**
      * Sets text alignment
      *
      * @param string $textAlignment
